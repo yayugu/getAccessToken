@@ -1,0 +1,15 @@
+%p
+  Access token を取得できるツールです。BOTの作成などにご利用ください。
+%p
+  このツールを使う前に
+  %a{:href => 'http://twitter.com/apps'}
+    http://twitter.com/apps
+  に登録したアプリケーションの設定から Application TypeをBrowserに変更して、Callback URLに適当なURL(http://localhost/ や http://getaccesstoken.yayugu.net/ など)を登録しておいてください。
+%form{:action => '/request_token', :method => 'POST'}
+  %div
+    Consumer key: 
+    %input.b{:type => 'text', :name => 'consumer_key'}
+  %div
+    Consumer secret: 
+    %input.b{:type => 'text', :name => 'consumer_secret'}
+  %input.button{:type => 'submit', :value => 'get acess_token'}
