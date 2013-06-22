@@ -11,7 +11,7 @@ helpers do
   alias_method :h, :escape_html
 
   def oauth_consumer(key, secret)
-    OAuth::Consumer.new(key, secret, :site => 'http://api.twitter.com')
+    OAuth::Consumer.new(key, secret, :site => 'https://api.twitter.com')
   end
 
   def base_url
@@ -23,13 +23,13 @@ helpers do
   def get_screen_name(access_token)
     JSON.parse(
       access_token.get(
-        "http://api.twitter.com/1/account/verify_credentials.json").body)['screen_name']
+        "https://api.twitter.com/1.1/account/verify_credentials.json").body)['screen_name']
   end
 end
 
 configure do
   enable :sessions
-  set :public, File.dirname(__FILE__) + '/public'
+  set :public_dir, File.dirname(__FILE__) + '/public'
   set :views, File.dirname(__FILE__) + '/views'
 end
 
